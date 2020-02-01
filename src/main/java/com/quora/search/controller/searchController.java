@@ -4,7 +4,6 @@ package com.quora.search.controller;
 import com.quora.search.document.SearchDocument;
 import com.quora.search.dto.*;
 import com.quora.search.service.SearchService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,12 +33,12 @@ public class searchController {
 
     }
 
-    @PostMapping(path = "addOrganisation")
+    @PostMapping(path = "addOrganization")
     public void addOrganisation(@RequestBody OrganizationInputDto organizationInputDto) {
 
         SearchDocument searchDocument=new SearchDocument();
         searchDocument.setDocumentId(organizationInputDto.getOrganizationId());
-        searchDocument.setCategory("organisation");
+        searchDocument.setCategory("organization");
         searchDocument.setBody(organizationInputDto.getOrganizationName());
         searchDocument.setImgUrl(organizationInputDto.getOrganizationImage());
         searchDocument.setFlag(false);

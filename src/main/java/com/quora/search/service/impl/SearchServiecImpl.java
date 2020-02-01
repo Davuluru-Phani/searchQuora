@@ -4,6 +4,7 @@ import com.quora.search.document.SearchDocument;
 import com.quora.search.repository.SearchRepository;
 import com.quora.search.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.data.solr.core.query.SimpleQuery;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class SearchServiecImpl implements SearchService {
 
         SimpleQuery simpleQuery=new SimpleQuery(searchTerm);
         simpleQuery.setRequestHandler("/spellCheckCompRH");
+//        Page<SearchDocument> page=solrTemplate.queryForPage("search",simpleQuery,SearchDocument.class);
         System.out.println(solrTemplate.query("searchDocument",simpleQuery,SearchDocument.class).getContent().toString());
         return solrTemplate.query("searchDocument",simpleQuery,SearchDocument.class).getContent();
 

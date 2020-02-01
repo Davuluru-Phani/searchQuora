@@ -12,7 +12,8 @@ public class OrganizationInputDto {
     private String organizationName;
     private String organizationEmail;
     private String organizationImage;
-    private List<String> moderatorId;
+    private String moderatorId;
     private List<String> organizationFollowers;
     private List<String> organizationMembers;
+
 }
