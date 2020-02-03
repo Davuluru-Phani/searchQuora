@@ -38,8 +38,10 @@ public class SearchServiecImpl implements SearchService {
 
 
     public void add(SearchDocument searchDocument){
-        System.out.println(searchDocument.toString());
-        searchRepository.save(searchDocument);
+        if(!searchRepository.existsById(searchDocument.getDocumentId())) {
+            System.out.println(searchDocument.toString());
+            searchRepository.save(searchDocument);
+        }
     }
 
     public List<SearchDocument> search(String searchTerm){
